@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="loadStudentDash()">
+    <nav>
+        <h2>EduFund <span style="font-weight:300; font-size:1rem; color:var(--text-muted);">| Student</span></h2>
+        <div style="display:flex; align-items:center;">
+            <span style="margin-right:15px; font-weight:600;" id="user-name">User</span>
+            <button onclick="logout()" class="btn btn-sm btn-outline">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard-grid">
+            <!-- Left: Post Project -->
+            <div>
+                <div class="card" style="position: sticky; top: 100px;">
+                    <h3>🚀 Post New Project</h3>
+                    <p style="font-size: 0.9rem;">Share your innovation with the world.</p>
+                    <form onsubmit="postProject(event)">
+                        <label>Project Title</label>
+                        <input type="text" id="p-title" placeholder="e.g., Solar Backpack" required>
+
+                        <label>Description</label>
+                        <textarea id="p-desc" rows="3" placeholder="Short description..." required></textarea>
+
+                        <label>Sector</label>
+                        <select id="p-sector">
+                            <option>Technology</option>
+                            <option>Medical</option>
+                            <option>Agriculture</option>
+                        </select>
+
+                        <label>Funds Needed ($)</label>
+                        <input type="number" id="p-needed" placeholder="1000" required>
+
+                        <button type="submit" class="btn">Publish Project</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right: Content -->
+            <div>
+                <h3 style="margin-bottom:20px;">My Projects</h3>
+                <div id="my-projects"></div>
+
+                <h3 style="margin-top:40px; margin-bottom:20px;">Needs Posted by Donors</h3>
+                <div id="donor-needs"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
