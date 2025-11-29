@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Donor Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="loadDonorDash()">
+    <nav>
+        <h2>EduFund <span style="font-weight:300; font-size:1rem; color:var(--text-muted);">| Donor</span></h2>
+        <div style="display:flex; align-items:center;">
+            <span style="margin-right:15px; font-weight:600;" id="user-name">User</span>
+            <button onclick="logout()" class="btn btn-sm btn-outline">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Stats Row -->
+        <div style="display:flex; gap:20px; margin-bottom:30px;">
+            <div class="card" style="flex:1; background: linear-gradient(135deg, #4f46e5, #4338ca); color:white;">
+                <small style="color:#a5b4fc;">Total Impact</small>
+                <h1>0</h1>
+                <p style="color:#e0e7ff; margin:0;">Funds Distributed</p>
+            </div>
+            <div class="card" style="flex:1;">
+                <small>Projects Funded</small>
+                <h1>0</h1>
+
+            </div>
+        </div>
+
+<div class="dashboard-grid">
+            <!-- Left: Post Need -->
+            <div>
+                <div class="card" style="position: sticky; top: 100px;">
+                    <h3>📢 Post a Need</h3>
+                    <p style="font-size: 0.9rem;">Looking for a specific solution?</p>
+                    <form onsubmit="postNeed(event)">
+                        <label>Requirement Title</label>
+                        <input type="text" id="n-title" placeholder="e.g., Clean Water Filter" required>
+
+                        <label>Details</label>
+                        <textarea id="n-desc" rows="3" placeholder="Describe the problem..." required></textarea>
+
+                        <label>Category</label>
+                        <select id="n-sector">
+                            <option>Technology</option>
+                            <option>Medical</option>
+                            <option>Agriculture</option>
+                        </select>
+
+                        <button type="submit" class="btn">Post Need</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right: Feed -->
+            <div>
+                <h3 style="margin-bottom:20px;">Explore Projects</h3>
+                <div id="project-feed"></div>
+            </div>
+        </div>
+    </div>
+ <script src="script.js"></script>
+</body>
+
+</html>
